@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mbg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -105,9 +105,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "blog-template"
+  "defaultProject": "blog-template",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
