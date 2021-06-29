@@ -1,0 +1,53 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" class="login-page">
+  <mat-card fxLayout="row" fxFlex="640px">
+    <div fxFlex="50" style="border-right: aliceblue 1px solid; padding-right:16px ">
+      <h3 fxLayoutAlign="center"> логин&пароль </h3>
+      <form [formGroup]="loginForm" (submit)="enter()">
+        <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent">
+          <mat-label> Введите почту или логин </mat-label>
+          <input matInput style="width: 100%" formControlName="login" autocomplete="true">
+        </mat-form-field>
+        <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent">
+          <mat-label> Введите пароль </mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'"  autocomplete="true"
+                 style="width: 100%" formControlName="password">
+          <button type="button" mat-icon-button matSuffix
+                  (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div fxLayoutAlign="center">
+          <button mat-stroked-button type="submit" [disabled]="loginForm.invalid"> Войти </button>
+        </div>
+      </form>
+    </div>
+
+    <div fxFlex="50" fxLayoutAlign="center">
+      <div>
+        <h3 fxLayoutAlign="center"> OAuth </h3>
+        <div fxLayout="column" fxLayoutGap="12px">
+          <button class="oauth-button" type="button" mat-flat-button fxFlex="90">
+            <div  fxLayoutAlign="space-between center">
+              <span> Войти через Google </span>
+              <span class="iconify" data-icon="whh:google" data-inline="false"></span>
+            </div>
+          </button>
+          <button class="oauth-button" type="button" mat-flat-button fxFlex="90">
+            <div fxLayoutAlign="space-between center">
+              <span> Войти через Facebook </span>
+              <span class="iconify" data-icon="entypo-social:facebook" data-inline="false"></span>
+            </div>
+          </button>
+          <button class="oauth-button" type="button" mat-flat-button fxFlex="90">
+            <div fxLayoutAlign="space-between center" >
+              <span> Войти через ВКонтакте </span>
+              <span class="iconify" data-icon="simple-icons:vk" data-inline="false"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </mat-card>
+</div>
