@@ -7,6 +7,8 @@ import { HeaderModule } from "./shared/header/header.module";
 import { RouterModule } from "@angular/router";
 import { BLOG_ROUTES } from "./app.routes";
 import { HomeComponent } from './home/home.component';
+import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
+import {LOADING_BAR_CONFIG, LoadingBarModule} from "@ngx-loading-bar/core";
 
 @NgModule({
   declarations: [
@@ -17,9 +19,13 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     BrowserAnimationsModule,
     HeaderModule,
+    LoadingBarModule,
+    LoadingBarHttpClientModule,
     RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
   ],
-  providers: [],
+  providers: [
+    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

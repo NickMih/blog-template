@@ -30,10 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   enter(): void {
-    this.authService.login(this.loginForm.value).pipe(
-      tap(user => console.log(user)),
-      tap(() => this.router.navigate([''])),
-      untilDestroyed(this))
+    this.authService.login(this.loginForm.value).pipe(untilDestroyed(this))
       .subscribe();
   }
 

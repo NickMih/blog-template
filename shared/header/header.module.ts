@@ -6,6 +6,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FlexModule } from "@angular/flex-layout";
+import { MatMenuModule } from "@angular/material/menu";
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { FlexModule } from "@angular/flex-layout";
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    MatMenuModule,
     FlexModule
   ],
   declarations: [HeaderComponent],
