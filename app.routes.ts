@@ -1,11 +1,11 @@
 import { Routes } from "@angular/router";
 
-import { AppComponent } from "./app.component";
+import { HomeComponent } from "./home/home.component";
 
 export const BLOG_ROUTES: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: HomeComponent,
   },
   {
     path: 'login',

@@ -6,10 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from "./shared/header/header.module";
 import { RouterModule } from "@angular/router";
 import { BLOG_ROUTES } from "./app.routes";
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
