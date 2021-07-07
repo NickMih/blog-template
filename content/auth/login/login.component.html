@@ -1,12 +1,14 @@
 <div fxLayout="row" fxLayoutAlign="space-around center" class="login-page">
   <mat-card fxLayout="row" fxFlex="640px">
     <div fxFlex="50" style="border-right: aliceblue 1px solid; padding-right:16px ">
-      <h3 fxLayoutAlign="center"> логин&пароль </h3>
-      <form [formGroup]="loginForm" (submit)="enter()">
+      <h3 fxLayoutAlign="center"> Логин&Пароль </h3>
+
+      <form [formGroup]="loginForm" (submit)="login()">
         <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent">
           <mat-label> Введите почту или логин </mat-label>
           <input matInput style="width: 100%" formControlName="login" autocomplete="true">
         </mat-form-field>
+
         <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent">
           <mat-label> Введите пароль </mat-label>
           <input matInput [type]="hidePassword ? 'password' : 'text'"  autocomplete="true"
@@ -17,7 +19,8 @@
             <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-        <div fxLayoutAlign="center">
+
+        <div fxLayoutAlign="center" class="padding8">
           <button mat-stroked-button type="submit" [disabled]="loginForm.invalid"> Войти </button>
         </div>
       </form>

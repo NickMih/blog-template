@@ -3,7 +3,7 @@
     <div fxFlex fxLayoutGap="12px">
       <a mat-button routerLink="./"> Главная </a>
     </div>
-    <div fxLayoutAlign="center center"  fxFlex="10" *ngIf="currentUser | async as user; else authBlock" >
+    <div fxLayoutAlign="center center"  fxFlex="10" *ngIf="currentUser$ | async as user; else authBlock" >
         <mat-icon fxFlex="32px" *ngIf="!user.avatar"> account_circle </mat-icon>
       <img [src]="user.avatar" class="user-icon"/>
       {{ user.name }}
@@ -22,7 +22,7 @@
       </mat-menu>
     </div>
     <ng-template #authBlock>
-      <a mat-button routerLink="login"> Регистрация </a>
+      <a mat-button routerLink="registration"> Регистрация </a>
       <a mat-button routerLink="login"> Авторизация </a>
     </ng-template>
   </mat-toolbar-row>

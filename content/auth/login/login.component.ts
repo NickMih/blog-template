@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../core/services/auth.service";
+import {AuthService} from "../../../core/services/auth.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {tap} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {StateService} from "../../../core/services/state.service";
 
 @UntilDestroy()
 @Component({
@@ -11,30 +12,24 @@ import {Router} from "@angular/router";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   hidePassword: boolean = true;
-  loginForm: FormGroup;
+  loginForm: FormGroup = this._initForm();
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private authService: AuthService
-    ) {
-  }
+    private authService: AuthService,
+    ) {}
 
   private _initForm(): FormGroup {
     return this.fb.group({
       login: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
     });
   }
 
-  enter(): void {
+  login(): void {
     this.authService.login(this.loginForm.value).pipe(untilDestroyed(this))
       .subscribe();
-  }
-
-  ngOnInit() {
-    this.loginForm = this._initForm();
   }
 }

@@ -9,6 +9,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MatCheckboxModule} from "@angular/material/checkbox";
 
 
 
@@ -23,7 +24,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     MatIconModule,
     MatButtonModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forChild([{path: '', component: LoginComponent}])
   ]
 })

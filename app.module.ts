@@ -6,14 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from "./shared/header/header.module";
 import { RouterModule } from "@angular/router";
 import { BLOG_ROUTES } from "./app.routes";
-import { HomeComponent } from './home/home.component';
 import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
 import {LOADING_BAR_CONFIG, LoadingBarModule} from "@ngx-loading-bar/core";
+import { API, API_TOKEN } from "./config";
+import {NgxMaskModule} from "ngx-mask";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,10 +21,12 @@ import {LOADING_BAR_CONFIG, LoadingBarModule} from "@ngx-loading-bar/core";
     HeaderModule,
     LoadingBarModule,
     LoadingBarHttpClientModule,
+    NgxMaskModule.forRoot(),
     RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
   ],
   providers: [
-    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } }
+    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
+    { provide: API_TOKEN, useValue: API }
   ],
   bootstrap: [AppComponent]
 })

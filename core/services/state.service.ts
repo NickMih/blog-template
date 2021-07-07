@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
 import {UserApi} from "../models/user-api";
 
 @Injectable({
@@ -7,5 +7,5 @@ import {UserApi} from "../models/user-api";
 })
 export class StateService {
 
-  currentUser = new Subject<UserApi>();
+  currentUser = new BehaviorSubject<UserApi>(null as any);
 }
