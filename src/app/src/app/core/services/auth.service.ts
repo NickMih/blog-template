@@ -20,23 +20,14 @@ export class AuthService {
     return of(user).pipe(
       map(user => plainToClass(UserApi, user)),
       delay(1000),
-      tap( user =>  this.stateService.currentUser.next(user)),
-      tap(() => this.router.navigate(['']))
-    );
-  }
-
-  public signUp({login, password, phone} : {login: string, password: string, phone: string}): Observable<UserApi> {
-    return of(user).pipe(
-      map(user => plainToClass(UserApi, user)),
-      delay(1000),
       tap( user => this.stateService.currentUser.next(user)),
       tap(() => this.router.navigate(['']))
     );
   }
 
-  public logout(): Observable<null> {
-    return of(null).pipe(
-      tap((user) => this.stateService.currentUser.next(user as any))
+  public logout(): Observable<undefined> {
+    return of(undefined).pipe(
+      tap(user => this.stateService.currentUser.next(user))
     )
   }
 

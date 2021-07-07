@@ -1,14 +1,22 @@
 import { Routes } from "@angular/router";
 
-import { HomeComponent } from "./home/home.component";
-
 export const BLOG_ROUTES: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./content/home/home.module').then(m => m.HomeModule)
+
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () => import('./content/auth/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'registration',
+    loadChildren: () => import('./content/auth/signup/signup.module').then(m => m.SignUpModule)
   }
 ]

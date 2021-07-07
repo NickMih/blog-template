@@ -1,0 +1,46 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" class="login-page">
+  <mat-card fxLayout="column" fxFlex="520px">
+    <mat-card-title fxLayout="row" fxLayoutAlign="space-around center"> Регистрация </mat-card-title>
+      <form [formGroup]="signUpForm" (submit)="signUp()" fxFlex fxLayout="column">
+        <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent" fxFlex>
+          <mat-label> Введите почту или логин </mat-label>
+          <input matInput formControlName="login" autocomplete="true" fxFlex="80">
+        </mat-form-field>
+
+        <mat-form-filed formGroupName="password" fxFlex fxLayout="column">
+          <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent" fxFlex>
+            <mat-label> Введите пароль </mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'"  autocomplete="true"
+                   style="width: 100%" formControlName="password">
+            <button type="button" mat-icon-button matSuffix
+                    (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent" fxFlex>
+            <mat-label>  Повторите пароль </mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'"  autocomplete="true"
+                   style="width: 100%" formControlName="cpassword">
+            <button type="button" mat-icon-button matSuffix
+                    (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-error *ngIf="passwordForm?.invalid && passwordForm?.touched"> Пароли не совпадают </mat-error>
+        </mat-form-filed>
+
+        <mat-form-field fxLayoutAlign="center" appearance="standard" floatLabel="always" color="accent" fxFlex>
+          <mat-label> Введите телефон </mat-label>
+          <input matInput style="width: 100%" formControlName="phone" prefix="+7" mask="(000)-000-00-00"  [showMaskTyped]="true">
+          <mat-error> Неверный формат </mat-error>
+        </mat-form-field>
+
+        <div fxLayoutAlign="center" class="padding8">
+          <button mat-stroked-button type="submit" [disabled]="signUpForm.invalid"> Зарегистрироваться </button>
+        </div>
+      </form>
+  </mat-card>
+</div>

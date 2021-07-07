@@ -27,7 +27,6 @@
     "@ngx-loading-bar/http-client": "^5.1.2",
     "class-transformer": "^0.4.0",
     "es6-shim": "^0.35.6",
-    "ngx-mask": "^12.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",

@@ -12,7 +12,7 @@ import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  currentUser$: Observable<UserApi | null> = this.stateService.currentUser.asObservable();
+  currentUser: Observable<UserApi> = this.stateService.currentUser.asObservable();
   constructor(
     private stateService: StateService,
     private authService: AuthService
