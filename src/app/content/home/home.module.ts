@@ -9,6 +9,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import {FlexModule} from "@angular/flex-layout";
 import {ProductsComponent} from "./products/products.component";
 import {ProductComponent} from "./products/product/product.component";
+import { ProductPageComponent } from '../product-page/product-page.component';
 
 
 

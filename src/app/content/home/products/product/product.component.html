@@ -6,7 +6,7 @@
   </div>
   <div class="product-card--description mat-card-content mat-body-1"> {{ product.description }} </div>
   <div class="product-card--actions" fxLayout="row" fxLayoutAlign="space-between ">
-    <button mat-button> Открыть </button>
+    <button mat-button [routerLink]="['../product',product.id]"> Открыть </button>
     <button mat-button> Поделиться </button>
   </div>
 </div>

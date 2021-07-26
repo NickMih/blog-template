@@ -12,6 +12,7 @@ import { API, API_TOKEN } from "./config";
 import {NgxMaskModule} from "ngx-mask";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
+import {ProductResolverService} from "./content/product-page/product-resolver.service";
 
 @NgModule({
     declarations: [
@@ -27,9 +28,9 @@ import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
         RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
     ],
     providers: [
-        {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
-        {provide: LOADING_BAR_CONFIG, useValue: {latencyThreshold: 100}},
-        {provide: API_TOKEN, useValue: API}
+      {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+      {provide: LOADING_BAR_CONFIG, useValue: {latencyThreshold: 100}},
+      {provide: API_TOKEN, useValue: API}
     ],
     bootstrap: [AppComponent]
 })

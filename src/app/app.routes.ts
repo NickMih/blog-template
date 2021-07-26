@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import {ProductResolverService} from "./content/product-page/product-resolver.service";
 
 export const BLOG_ROUTES: Routes = [
   {
@@ -22,5 +23,10 @@ export const BLOG_ROUTES: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./content/about/about.module').then(m => m.AboutModule)
+  },
+  {
+    path: 'product/:id',
+    loadChildren: () => import('./content/product-page/product-page.module').then(m => m.ProductPageModule),
+    resolve: { product: ProductResolverService }
   }
 ]

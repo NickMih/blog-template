@@ -12,10 +12,14 @@ export class ProductService {
   constructor(@Inject(API_TOKEN) private API: string) { }
 
   getProducts(): Observable<IProduct[]> {
-    return of(products);
+    return of<IProduct[]>(products);
+  }
+
+  getProduct(id: string): Observable<IProduct | never> {
+    return of<IProduct>(products.find( (el,index, arr) => el.id.toString() === id ) as IProduct)
   }
 
   getCategories(): Observable<ICategory[]> {
-    return of(categories);
+    return of<ICategory[]>(categories);
   }
 }
