@@ -12,29 +12,32 @@ import { API, API_TOKEN } from "./config";
 import {NgxMaskModule} from "ngx-mask";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
-import { ProductsComponent } from './content/products/products.component';
-import { ProductComponent } from './content/products/product/product.component';
+import { ProductsComponent } from './content/home/products/products.component';
+import { ProductComponent } from './content/home/products/product/product.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductsComponent,
-    ProductComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HeaderModule,
-    LoadingBarModule,
-    LoadingBarHttpClientModule,
-    NgxMaskModule.forRoot(),
-    RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
-    { provide: API_TOKEN, useValue: API }
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ProductsComponent,
+        ProductComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HeaderModule,
+        LoadingBarModule,
+        LoadingBarHttpClientModule,
+        NgxMaskModule.forRoot(),
+        RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
+    ],
+    providers: [
+        {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
+        {provide: LOADING_BAR_CONFIG, useValue: {latencyThreshold: 100}},
+        {provide: API_TOKEN, useValue: API}
+    ],
+    exports: [
+        ProductsComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

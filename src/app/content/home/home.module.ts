@@ -7,6 +7,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { MatGridListModule} from "@angular/material/grid-list";
 import { CategoriesComponent } from './categories/categories.component';
 import {FlexModule} from "@angular/flex-layout";
+import {AppModule} from "../../app.module";
 
 
 
@@ -18,7 +19,8 @@ import {FlexModule} from "@angular/flex-layout";
         MatButtonModule,
         MatGridListModule,
         RouterModule.forChild([{path: '', component: HomeComponent}]),
-        FlexModule
+        FlexModule,
+        AppModule
     ],
   exports: [
     HomeComponent
