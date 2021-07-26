@@ -1,1 +1,12 @@
-<p>product works!</p>
+<div class="product-card">
+  <img src="{{ product.images[product.id % 3] }}" class="product-card--image">
+  <div class="product-card--header">
+    <div class="mat-headline"> {{ product.name }}</div>
+    <div class="mat-subheading-2" style="text-align: right"> {{ product.price }} </div>
+  </div>
+  <div class="product-card--description mat-card-content mat-body-1"> {{ product.description }} </div>
+  <div class="product-card--actions" fxLayout="row" fxLayoutAlign="space-between ">
+    <button mat-button> Открыть </button>
+    <button mat-button> Поделиться </button>
+  </div>
+</div>

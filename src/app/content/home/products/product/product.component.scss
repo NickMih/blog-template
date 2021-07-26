@@ -1,0 +1,62 @@
+.product-card {
+  height: 230px;
+  width: 280px;
+  overflow: hidden;
+  margin: 8px 12px;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: #0006 0 0 4px;
+  background: #ffffff2e;
+  cursor: default;
+
+  &:hover {
+    button {
+      opacity: 1;
+    }
+    .product-card--description {
+      overflow: hidden;
+    }
+  }
+
+  &--header {
+    padding: 12px;
+    height: 70px;
+  }
+
+  &--image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -3;
+    position: absolute;
+
+  }
+  &--description {
+    background: #ffffff6f;
+    min-height: 70px;
+    max-height: 70px;
+    text-overflow: ellipsis;
+    padding: 12px 8px;
+    transition: 0.1s;
+    text-align: justify;
+  }
+  &--actions {
+    bottom: 0;
+    height: 20%;
+    width: 100%;
+    background: #ffffff6f;
+    button {
+      opacity: 0;
+      width: 50%;
+      height: 42px;
+      background: #0000005f;
+      color: white;
+      border: none;
+      transition: 0.3s;
+      &:hover {
+        background: #0000007f;
+        cursor: pointer;
+      }
+    }
+  }
+}

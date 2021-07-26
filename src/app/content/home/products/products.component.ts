@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Observable} from "rxjs";
+import {IProduct} from "../../../core/models/interfaces";
+import {ProductService} from "../../../core/services/product.service";
 
 @Component({
   selector: 'mbg-products',
@@ -7,5 +10,9 @@ import { Component } from '@angular/core';
 })
 export class ProductsComponent {
 
-  constructor() { }
+  products$: Observable<IProduct[]> = this.productService.getProducts();
+
+  constructor(
+    private productService: ProductService
+  ) { }
 }

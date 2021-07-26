@@ -12,14 +12,10 @@ import { API, API_TOKEN } from "./config";
 import {NgxMaskModule} from "ngx-mask";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
-import { ProductsComponent } from './content/home/products/products.component';
-import { ProductComponent } from './content/home/products/product/product.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ProductsComponent,
-        ProductComponent,
     ],
     imports: [
         BrowserModule,
@@ -34,9 +30,6 @@ import { ProductComponent } from './content/home/products/product/product.compon
         {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
         {provide: LOADING_BAR_CONFIG, useValue: {latencyThreshold: 100}},
         {provide: API_TOKEN, useValue: API}
-    ],
-    exports: [
-        ProductsComponent
     ],
     bootstrap: [AppComponent]
 })
