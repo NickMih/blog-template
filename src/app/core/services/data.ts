@@ -1,4 +1,4 @@
-import {IProduct} from "../models/interfaces";
+import {ICategory, IProduct} from "../models/interfaces";
 
 export const user = {
   id : 0,
@@ -74,4 +74,87 @@ export const products: IProduct[] = [
       'https://icdn.lenta.ru/images/2020/03/05/16/20200305164436319/square_320_bea3320c21319794f2ca58c8e1a508a6.png'
     ]
   }
+]
+
+export const categories: ICategory[] = [
+  {
+    id: 1,
+    name: 'Первый тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 2,
+    name: 'Второй тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 3,
+    name: 'Третий тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 4,
+    name: 'Четвертый тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 5,
+    name: 'Пятый тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 6,
+    name: 'Шестой тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 7,
+    name: 'Седьмой тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 8,
+    name: '8 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 9,
+    name: '9 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 11,
+    name: '11 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 12,
+    name: '12 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 13,
+    name: '13 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 14,
+    name: '14 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 15,
+    name: '15 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 16,
+    name: '16 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
+  {
+    id: 17,
+    name: '17 тип',
+    icon: 'https://www.pngfind.com/pngs/m/2-24050_question-mark-png-image-transparent-white-question-mark.png'
+  },
 ]

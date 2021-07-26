@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
-import {IProduct} from "../models/interfaces";
-import { products } from "./data";
+import {ICategory, IProduct} from "../models/interfaces";
+import {categories, products} from "./data";
 import { API_TOKEN } from "../../config";
 
 @Injectable({
@@ -13,5 +13,9 @@ export class ProductService {
 
   getProducts(): Observable<IProduct[]> {
     return of(products);
+  }
+
+  getCategories(): Observable<ICategory[]> {
+    return of(categories);
   }
 }

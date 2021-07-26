@@ -18,5 +18,9 @@ export const BLOG_ROUTES: Routes = [
   {
     path: 'registration',
     loadChildren: () => import('./content/auth/signup/signup.module').then(m => m.SignUpModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./content/about/about.module').then(m => m.AboutModule)
   }
 ]

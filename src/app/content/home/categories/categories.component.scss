@@ -1,0 +1,35 @@
+.categories-container {
+  width: 100%;
+  background: rgba(255, 229, 200, 0.42);
+  padding: 48px 36px;
+
+  &--card{
+    width: 120px;
+    background: white;
+    min-height: 120px;
+    border-radius: 24px;
+    padding: 2px;
+    box-shadow: #0000004e 1px 1px 4px 1px;
+    transition: 0.1s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: #0000002e 2px 2px 8px 2px;
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    &--title {
+      font-weight: bold;
+      text-align: center;
+      display: block;
+      margin-top: 12px;
+      line-height: 32px;
+    }
+    &--icon {
+      height: 48px;
+      width: 48px;
+      margin: 8px;
+
+    }
+  }
+}

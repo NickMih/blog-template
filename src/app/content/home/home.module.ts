@@ -5,18 +5,21 @@ import { MatCardModule } from "@angular/material/card";
 import {RouterModule} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
 import { MatGridListModule} from "@angular/material/grid-list";
+import { CategoriesComponent } from './categories/categories.component';
+import {FlexModule} from "@angular/flex-layout";
 
 
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    MatCardModule,
-    MatButtonModule,
-    MatGridListModule,
-    RouterModule.forChild([{path: '', component: HomeComponent}])
-  ],
+  declarations: [HomeComponent, CategoriesComponent],
+    imports: [
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        MatGridListModule,
+        RouterModule.forChild([{path: '', component: HomeComponent}]),
+        FlexModule
+    ],
   exports: [
     HomeComponent
   ]

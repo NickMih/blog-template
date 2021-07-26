@@ -10,10 +10,16 @@ import {LoadingBarHttpClientModule} from "@ngx-loading-bar/http-client";
 import {LOADING_BAR_CONFIG, LoadingBarModule} from "@ngx-loading-bar/core";
 import { API, API_TOKEN } from "./config";
 import {NgxMaskModule} from "ngx-mask";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
+import { ProductsComponent } from './content/products/products.component';
+import { ProductComponent } from './content/products/product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProductsComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +31,7 @@ import {NgxMaskModule} from "ngx-mask";
     RouterModule.forRoot(BLOG_ROUTES, {relativeLinkResolution: 'legacy'})
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: LOADING_BAR_CONFIG, useValue: { latencyThreshold: 100 } },
     { provide: API_TOKEN, useValue: API }
   ],

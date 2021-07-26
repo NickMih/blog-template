@@ -2,6 +2,7 @@
   <mat-toolbar-row>
     <div fxFlex fxLayoutGap="12px">
       <a mat-button routerLink="./"> Главная </a>
+      <a mat-button routerLink="./about"> О нас </a>
     </div>
     <div fxLayoutAlign="center center"  fxFlex="10" *ngIf="currentUser$ | async as user; else authBlock" >
         <mat-icon fxFlex="32px" *ngIf="!user.avatar"> account_circle </mat-icon>

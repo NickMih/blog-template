@@ -1,0 +1,12 @@
+<div class="categories-container" *ngIf="categories$ | async as categories; else noLoad"
+     fxLayout="row wrap" fxLayoutAlign="space-around center" fxFlex="1 0 auto"  fxLayoutGap="12px">
+  <div class="categories-container--card" fxLayout="column" fxLayoutAlign=" center"
+       *ngFor="let category of categories.slice(0,8)">
+    <span class="categories-container--card--title">
+      {{ category.name }}
+    </span>
+    <img [src]="category.icon" class="categories-container--card--icon">
+  </div>
+
+</div>
+<ng-template #noLoad></ng-template>
