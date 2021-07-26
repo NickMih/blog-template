@@ -21,12 +21,13 @@ import { ProductPageComponent } from '../product-page/product-page.component';
     ProductComponent
   ],
     imports: [
-        CommonModule,
-        MatCardModule,
-        MatButtonModule,
-        MatGridListModule,
-        RouterModule.forChild([{path: '', component: HomeComponent}]),
-        FlexModule,
+      CommonModule,
+      MatCardModule,
+      MatButtonModule,
+      MatGridListModule,
+      MatGridListModule,
+      RouterModule.forChild([{path: '', component: HomeComponent}]),
+      FlexModule,
     ],
   exports: [
     HomeComponent

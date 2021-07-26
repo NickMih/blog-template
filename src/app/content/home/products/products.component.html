@@ -1,6 +1,13 @@
 <div style="padding: 24px 12px">
-  <div *ngIf="products$ | async as products; else notFound" fxLayout="row wrap" fxLayoutAlign="space-around center">
-    <mbg-product *ngFor="let product of products" [product]="product"></mbg-product>
+  <div *ngIf="products$ | async as products; else notFound">
+    <mat-grid-list cols="5" rowHeight="240px">
+      <mat-grid-tile
+        *ngFor="let product of products"
+        [colspan]="1"
+        [rowspan]="1">
+        <mbg-product [product]="product"></mbg-product>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
   <ng-template #notFound>
     Продуктов не найдено
