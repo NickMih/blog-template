@@ -1,0 +1,22 @@
+.about-header-bg {
+
+  background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  z-index: -1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  min-height: 480px;
+  height: 80vh;
+  max-height: 580px;
+  box-sizing: border-box;
+  padding: 48px 48px 32px;
+  overflow: hidden;
+  transform: skewY(
+      4deg
+  );
+  transform-origin: 100%;
+}
