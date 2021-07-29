@@ -15,9 +15,9 @@ export const products: IProduct[] = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
     price: 322,
     images: [
-      'https://n1s1.hsmedia.ru/8a/4f/82/8a4f82777731790d55fcb1f0748be2b2/620x462_1_0dac89479360938d95c6e71ebc89682d@1000x745_0xac120003_11997538751587738886.jpg',
-      'https://zooclub.ru/attach/37000/37936.jpg',
-       'https://icdn.lenta.ru/images/2020/03/05/16/20200305164436319/square_320_bea3320c21319794f2ca58c8e1a508a6.png'
+      'https://st4.depositphotos.com/12985790/23262/i/600/depositphotos_232621110-stock-photo-smiling-boy-writing-math-example.jpg',
+      'https://st4.depositphotos.com/12985790/23262/i/600/depositphotos_232621110-stock-photo-smiling-boy-writing-math-example.jpg',
+       'https://st4.depositphotos.com/12985790/23262/i/600/depositphotos_232621110-stock-photo-smiling-boy-writing-math-example.jpg'
     ]
   },
   {

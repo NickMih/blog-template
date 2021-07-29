@@ -28,5 +28,9 @@ export const BLOG_ROUTES: Routes = [
     path: 'product/:id',
     loadChildren: () => import('./content/product-page/product-page.module').then(m => m.ProductPageModule),
     resolve: { product: ProductResolverService }
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
 ]

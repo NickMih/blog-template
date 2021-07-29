@@ -19,6 +19,9 @@
     .product-card--image {
       transform: scale(1.3);
     }
+    .product-card--info {
+      background: linear-gradient(#ffffff00 5%, #ffffff29 10%, #fffffff0 25%, #ffffffff 40%, #ffffffff 70%, #ffffffff 80%, #ffffffff 90%);
+    }
   }
 
   &--header {
@@ -36,7 +39,6 @@
 
   }
   &--description {
-    background: #ffffff6f;
     min-height: 70px;
     max-height: 70px;
     text-overflow: ellipsis;
@@ -45,11 +47,14 @@
     text-align: justify;
     margin-bottom: 0;
   }
+  &--info {
+    transition: 2.3s;
+    background: linear-gradient(#ffffff09 5%, #ffffff29 10%, #ffffff59 25%, #ffffff89 40%, #ffffffa9 70%, #ffffffd9 80%, #ffffffe9 90%);
+  }
   &--actions {
     bottom: 0;
     height: 20%;
     width: 100%;
-    background: #ffffff6f;
     button {
       opacity: 0;
       width: 50%;

@@ -12,7 +12,6 @@ import { API, API_TOKEN } from "./config";
 import {NgxMaskModule} from "ngx-mask";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {TokenInterceptor} from "./core/interceptors/tokenInterceptor";
-import {ProductResolverService} from "./content/product-page/product-resolver.service";
 
 @NgModule({
     declarations: [

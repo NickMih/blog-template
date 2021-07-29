@@ -4,11 +4,15 @@ import {RouterModule} from "@angular/router";
 import {AboutComponent} from "./about.component";
 import {FlexModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
+import { TagsCloudComponent } from './tags-cloud/tags-cloud.component';
 
 
 
 @NgModule({
-  declarations: [AboutComponent],
+  declarations: [
+    AboutComponent,
+    TagsCloudComponent
+  ],
   imports: [
     CommonModule,
     FlexModule,

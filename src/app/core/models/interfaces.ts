@@ -13,3 +13,8 @@ export interface ICategory {
   name: string;
   icon: string;
 }
+
+export interface ITag {
+  text: string,
+  size: number
+}
