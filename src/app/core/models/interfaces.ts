@@ -16,5 +16,8 @@ export interface ICategory {
 
 export interface ITag {
   text: string,
-  size: number
+  size: number,
+  x?: number,
+  y?: number,
+  rotate?: number
 }

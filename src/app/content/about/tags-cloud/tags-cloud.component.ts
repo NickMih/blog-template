@@ -1,11 +1,12 @@
-import {AfterViewInit, Component, DoCheck, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as d3 from 'd3';
 import * as d3Cloud from 'd3-cloud'
 import { data } from "./data";
-import {Observable, of} from "rxjs";
+import { Observable, of} from "rxjs";
 import {ITag} from "../../../core/models/interfaces";
-import {delay} from "rxjs/operators";
+import {delay, map } from "rxjs/operators";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
+import {Router} from "@angular/router";
 
 @UntilDestroy()
 @Component({
@@ -13,72 +14,89 @@ import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
   templateUrl: './tags-cloud.component.html',
   styleUrls: ['./tags-cloud.component.scss']
 })
-export class TagsCloudComponent implements OnInit, AfterViewInit {
+export class TagsCloudComponent implements OnInit, OnDestroy {
 
   data: ITag[];
 
-  constructor() { }
-  margin = {
-    top: 10,
-    right: 10,
-    bottom: 10,
-    left: 10
-  };
-  width = 450 - this.margin.left - this.margin.right;
-  height = 450 - this.margin.top - this.margin.bottom;
+  constructor(private router: Router) { }
+
+  width = window.screen.width - 32;
 
   svg:  d3.Selection<SVGGElement, unknown, HTMLElement, any>;
 
-  private _createSvg() {
-    return d3.select('#tags-cloud')
-      .attr("width", this.width + this.margin.left + this.margin.right)
-      .attr("height", this.height + this.margin.top + this.margin.bottom)
-      .append("g")
-      .attr("transform",
-        "translate(" + this.margin.left + "," + this.margin.top + ")");
-  }
-
   private _getData(): Observable<ITag[]> {
     return of(data).pipe(
-      untilDestroyed(this),
-      delay(1500)
+      map(data => data.slice(0,5)),
+      map(data => this._increaseTagsSize(data)),
+      delay(300),
     );
   }
 
-  ngAfterViewInit() {
-    this._getData().subscribe(data => {
-      this.data = data;
-      this._render();
+  private _increaseTagsSize(tags: ITag[]): ITag[] {
+    return tags.map( tag => {
+      tag.size = tag.size * 4 + 14;
+      return tag;
     })
   }
 
-  private _render() {
-    d3Cloud().words(this.data)
-      .size([400,400])
-      .timeInterval(20)
-      .padding(5)
-      .fontSize(d => d.size! * 2)
+  private _setWordColor(tag: ITag): string {
+    return `#${this.colorSpectrum(tag.size)}${this.colorSpectrum(tag.size)}${this.colorSpectrum(tag.size)}`
+  }
+
+  colorSpectrum(size: number): string {
+    return (Math.floor(Math.random() * 1000 * size) % 256).toString(16);
+  }
+
+  ngOnInit() {
+    this._getData()
+      .pipe(untilDestroyed(this))
+      .subscribe(data => {
+        this.svg = this._createSvg();
+        this._render(data);
+      })
+  }
+
+  private _createSvg() {
+    return d3.select('#tags-cloud')
+      .append('svg')
+      .attr("width", this.width)
+      .attr("height", 600)
+      .append('g')
+      .attr('transform', 'translate(' + ~~(this.width / 2) + ',' + ~~(500 / 2) + ')');
+  }
+
+  private _render(words: ITag[]) {
+    d3Cloud()
+      .size([this.width,450])
+      .words(words)
+      .fontSize(d => d.size!)
+      // .fontWeight(d => d.size! * 100 % 600)
       .rotate(() => ~~(Math.random() * 2) * 90)
+      .random(() => Math.random())
+      .padding(8)
       .on("end", this._draw.bind(this))
       .start();
   }
 
-  private _draw() {
-      d3.select("#tags-cloud")
-        .append("svg")
-        .attr("width", this.width + this.margin.left + this.margin.right)
-        .attr("height", this.height + this.margin.top + this.margin.bottom)
-        .append("g")
-        .attr("transform",
-          "translate(" + this.margin.left + "," + this.margin.top + ")")
-        .data<ITag>(this.data)
-        .enter().append("text")
-        .style("font-size", d => 24 + d.size*4 + "px")
-        .attr("text-anchor", "middle")
-        .text(d=> d.text );
+  private _draw(words: ITag[]) {
+    this.svg.selectAll('text')
+      .data<ITag>(words)
+      .enter()
+      .append('text')
+      .style('font-size', d => d.size)
+      .attr('text-anchor', 'middle')
+      .style('fill', d => this._setWordColor(d))
+      .attr('class','default-tag')
+      .attr('data-text',d => d.text)
+      .attr('transform', d => {
+        return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
+      })
+      .text(d => d.text)
+      .on("click", (d) => this.searchTag(d.target.dataset.text))
   }
 
-  ngOnInit() {
-    console.log('onInit');
+  private searchTag(text: string): void {
+    this.router.navigate([`/home?q=${text}`])
   }
+  ngOnDestroy() { }
 }
