@@ -26,7 +26,7 @@ export class TagsCloudComponent implements OnInit, OnDestroy {
 
   private _getData(): Observable<ITag[]> {
     return of(data).pipe(
-      map(data => data.slice(0,5)),
+      map(data => data.slice(0,100)),
       map(data => this._increaseTagsSize(data)),
       delay(300),
     );
